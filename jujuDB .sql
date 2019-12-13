@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-12-2019 a las 05:27:58
+-- Tiempo de generación: 13-12-2019 a las 06:13:21
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -25,13 +25,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Cargos`
+-- Estructura de tabla para la tabla `cargos`
 --
 
-CREATE TABLE `Cargos` (
+CREATE TABLE `cargos` (
   `Id_Cargo` int(11) NOT NULL,
   `cargo` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cargos`
+--
+
+INSERT INTO `cargos` (`Id_Cargo`, `cargo`) VALUES
+(1, 'Admin'),
+(2, 'Estandar'),
+(3, 'Borrar');
 
 -- --------------------------------------------------------
 
@@ -119,9 +128,9 @@ CREATE TABLE `Usuarios` (
 --
 
 --
--- Indices de la tabla `Cargos`
+-- Indices de la tabla `cargos`
 --
-ALTER TABLE `Cargos`
+ALTER TABLE `cargos`
   ADD PRIMARY KEY (`Id_Cargo`);
 
 --
@@ -171,10 +180,10 @@ ALTER TABLE `Usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `Cargos`
+-- AUTO_INCREMENT de la tabla `cargos`
 --
-ALTER TABLE `Cargos`
-  MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cargos`
+  MODIFY `Id_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `Categorias`
@@ -234,7 +243,7 @@ ALTER TABLE `Respuestas`
 -- Filtros para la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  ADD CONSTRAINT `Usuarios_ibfk_1` FOREIGN KEY (`Id_Cargo`) REFERENCES `Cargos` (`Id_Cargo`),
+  ADD CONSTRAINT `Usuarios_ibfk_1` FOREIGN KEY (`Id_Cargo`) REFERENCES `cargos` (`Id_Cargo`),
   ADD CONSTRAINT `Usuarios_ibfk_2` FOREIGN KEY (`Id_Municipio`) REFERENCES `Municipios` (`Id_Municipio`);
 COMMIT;
 
